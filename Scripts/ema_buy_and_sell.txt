@@ -1,0 +1,55 @@
+//@version=3
+study(title="Ema Buy and Sell", shorttitle="EMA Buy And Sell", overlay=true)
+
+//emaplot = input (true, title="Mostrar EMA no Chart")
+len72 = input(80, minval=1, title="Default EMA")
+len17 = input(34, minval=1, title="Fast EMA")
+
+src = close
+out72 = sma(src, len72)
+out17 = sma(src, len17)
+
+up = out72 > out72[1]
+down = out72 < out72[1]
+
+
+
+
+// Deternine if we are currently LONG
+isLong = false
+isLong := nz(isLong[1], false)
+
+// Determine if we are currently SHORT
+isShort = false
+isShort := nz(isShort[1], false)
+
+// Buy only if the buy signal is triggered and we are not already long
+LONG = not isLong and (ema(close, len17) > ema(close, len72))
+
+// Sell only if the sell signal is triggered and we are not already short
+SHORT= not isShort and (ema(close, len17) < ema(close, len72))
+
+
+
+if (LONG)
+    isLong := true
+    isShort := false
+
+if (SHORT)
+    isLong := false
+    isShort := true
+barcolor(isLong ? green : isShort ? red : na)
+
+// Show Break Alerts
+plotshape(SHORT, title="Sell", style=shape.labeldown, location=location.abovebar, size=size.normal, text="Sell", transp=0, textcolor = white, color=red, transp=0)
+plotshape(LONG, title="Buy", style=shape.labelup, location=location.belowbar, size=size.normal, text="Buy", textcolor = white, color=green, transp=0)
+
+
+// === /PLOTTING ===
+
+// Send alert to TV alarm sub-system
+alertcondition(LONG,title="Buy",message="Buy")
+alertcondition(LONG,title="Buy",message="Buy")
+alertcondition(LONG,title="Buy",message="Buy")
+alertcondition(SHORT,title="Sell",message="Sell")
+alertcondition(SHORT,title="Sell",message="Sell")

@@ -1,0 +1,23 @@
+study(title="Phicube Exponential Moving Averages", shorttitle="Phicube EMA", overlay=true)
+exponential = input(true, title="Exponential MA")
+
+src = close
+
+ma17 = exponential ? ema(src, 17) : sma(src, 17)
+ma34 = exponential ? ema(src, 34) : sma(src, 34)
+ma72 = exponential ? ema(src, 72) : sma(src, 72)
+ma144 = exponential ? ema(src, 144) : sma(src, 144)
+ma305 = exponential ? ema(src, 305) : sma(src, 305)
+ma610 = exponential ? ema(src, 610) : sma(src, 610)
+ma1292 = exponential ? ema(src, 1292) : sma(src, 1292)
+ma2584 = exponential ? ema(src, 2584) : sma(src, 2584)
+
+
+plot( ma17, color=color(#ff33cc,20), style=line, title="[E]MA17", linewidth=2)
+plot( ma34, color=color(#3399ff,20), style=line, title="[E]MA34", linewidth=2)
+plot( ma72, color=color(#ff9800,20), style=line, title="[E]MA72", linewidth=2)
+plot( ma144, color=color(#bcbe3b,20), style=line, title="[E]MA144", linewidth=2)
+plot( ma305, color=color(#333CFC,20), style=line, title="[E]MA305", linewidth=2)
+plot( ma610, color=color(#9598a1,20), style=line, title="[E]MA610", linewidth=2)
+plot( ma1292, color=color(#f44336,20), style=line, title="[E]MA1292", linewidth=2)
+plot( ma2584, color=color(#01b818,20), style=line, title="[E]MA2584", linewidth=2)

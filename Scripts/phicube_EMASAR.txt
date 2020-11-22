@@ -1,0 +1,138 @@
+// This source code is subject to the terms of the Mozilla Public License 2.0 at https://mozilla.org/MPL/2.0/
+// © Coringa
+
+//@version=3
+study("Phicube EMASAR",overlay=true)
+
+
+media4=ema(close,4)
+media8=ema(close,8)
+media17=ema(close,17)
+media34=ema(close,34)
+media72=ema(close,72)
+media144=ema(close,144)
+media305=ema(close,305)
+media610=ema(close,610)
+media1292=ema(close,1292)
+media2584=ema(close,2584)
+
+
+//condições ema17
+
+suporte17 = media4>media8 and media8>media17
+resistencia17 = media4<media8 and media8<media17
+neutro17= not suporte17 and not resistencia17
+
+s17= suporte17? color(#3ed8ff,transp = 0):na
+r17= resistencia17? color(#0f0dc6,transp = 0):na
+n17= neutro17? color(#0f0dc6,transp = 80):na
+
+
+plot(media17,title="S_17",color=s17,linewidth=2)
+plot(media17,title="R_17",color=r17,linewidth=2)
+plot(media17,title="N_17",color=n17,linewidth=1, style=cross)
+
+
+//condições ema34
+
+suporte34 = media8>media17 and media17>media34
+resistencia34 = media8<media17 and media17<media34
+neutro34= not suporte34 and not resistencia34
+
+
+s34= suporte34? color(#09ff00,transp = 0):na
+r34= resistencia34? color(#059a00,transp = 0):na
+n34= neutro34? color(#059a00,transp = 80):na
+
+
+plot(media34,title="S_34",color=s34,linewidth=2)
+plot(media34,title="R_34",color=r34,linewidth=2)
+plot(media34,title="N_34",color=n34,linewidth=1, style=cross)
+
+
+//condições ema72
+
+suporte72 = media17>media34 and media34>media72
+resistencia72 = media17<media34 and media34<media72
+neutro72= not suporte72 and not resistencia72
+
+s72= suporte72? color(#ffff00,transp = 0):na
+r72= resistencia72? color(#c1ad03,transp = 0):na
+n72= neutro72? color(#c1ad03,transp = 80):na
+
+plot(media72,title="S_72",color=s72,linewidth=2)
+plot(media72,title="R_72",color=r72,linewidth=2)
+plot(media72,title="",color=n72,linewidth=1, style=cross)
+
+//condições ema144
+
+suporte144 = media34>media72 and media72>media144
+resistencia144 = media34<media72 and media72<media144
+neutro144= not suporte144 and not resistencia144
+
+s144= suporte144? color(#e100e1,transp = 0):na
+r144= resistencia144? color(#840184,transp = 0):na
+n144= neutro144? color(#840184,transp = 80):na
+
+
+plot(media144,title="S_144",color=s144,linewidth=2)
+plot(media144,title="R_144",color=r144,linewidth=2)
+plot(media144,title="N_144",color=n144,linewidth=1, style=cross)
+
+//condições ema305
+
+suporte305 = media72>media144 and media144>media305
+resistencia305 = media72<media144 and media144<media305
+neutro305= not suporte305 and not resistencia305
+
+s305= suporte305? color(#ff0000,transp = 0):na
+r305= resistencia305? color(#b40000,transp = 0):na
+n305= neutro305? color(#b40000,transp = 80):na
+
+plot(media305,title="S_305",color=s305,linewidth=3)
+plot(media305,title="R_305",color=r305,linewidth=3)
+plot(media305,title="N_305",color=n305,linewidth=1, style=cross)
+
+//condições ema610
+
+suporte610 = media144>media305 and media305>media610
+resistencia610 = media144<media305 and media305<media610
+neutro610= not suporte610 and not resistencia610
+
+s610= suporte610? color(#ff7f00,transp = 0):na
+r610= resistencia610? color(#d46b02,transp = 0):na
+n610= neutro610? color(#d46b02,transp = 80):na
+
+plot(media610,title="S_610",color=s610,linewidth=3)
+plot(media610,title="R_610",color=r610,linewidth=3)
+plot(media610,title="N_610",color=n610,linewidth=1, style=cross)
+
+//condições ema1292
+
+suporte1292 = media305>media610 and media610>media1292
+resistencia1292 = media305<media610 and media610<media1292
+neutro1292= not suporte1292 and not resistencia1292
+
+s1292= suporte1292? color(#0cfefe,transp = 0):na
+r1292= resistencia1292? color(#049393,transp = 0):na
+n1292= neutro1292? color(#049393,transp = 80):na
+
+
+plot(media1292,title="S_1292",color=s1292,linewidth=3)
+plot(media1292,title="R_1292",color=r1292,linewidth=3)
+plot(media1292,title="N_1292",color=n1292,linewidth=1, style=cross)
+
+//condições ema2584
+
+suporte2584 = media610>media1292 and media1292>media2584
+resistencia2584 = media610<media1292 and media1292<media2584
+neutro2584= not suporte2584 and not resistencia2584
+
+s2584= suporte2584? color(#bbffb2,transp = 0):na
+r2584= resistencia2584? color(#5d8458,transp = 0):na
+n2584= neutro2584? color(#5d8458,transp = 80):na
+
+plot(media2584,title="S_2584",color=s2584,linewidth=3)
+plot(media2584,title="R_2584",color=r2584,linewidth=3)
+plot(media2584,title="N_2584",color=n2584,linewidth=1, style=cross)
+
